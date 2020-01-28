@@ -41,7 +41,12 @@ uint16_t contador = 0;
 // Vector de interrupción
 //**************************************************************
 void __interrupt() ISR(void){
-
+    if (TMR0IF){
+        //Enter your code here
+        TMR0IF = 0;
+        TMR0 = 4;
+        contador++;     // Se incrementa la variable de contador cada 0.5 mS
+    }
 }
 //**************************************************************
 // Función Principal
@@ -51,7 +56,7 @@ void main(void) {
     initTMR0();
     while(1){
         if(contador >= 1000){
-            PORTA++;
+            PORTB++;
             contador = 0;
         }
     }
@@ -61,14 +66,16 @@ void main(void) {
 // Función para inicializar puerto
 //**************************************************************
 void initPorts(void){
-    TRISA = 0;          // Puerto A como Salida
+    TRISB = 0;          // Puerto B como Salida
     ANSEL = 0;
     ANSELH = 0;         // Puertos Digitales
-    PORTA = 0;          // Inicializar Puerto A en 0
+    PORTB = 0;          // Inicializar Puerto B en 0
 }
 //**************************************************************
 // Función para inicializar Timer0
 //**************************************************************
 void initTMR0(void){
-
+    OPTION_REG = 0x81;   // Configuración para tener un desborde 
+    TMR0 = 4;            // de 0.5 mS    
+    INTCON = 0xA0;
 }

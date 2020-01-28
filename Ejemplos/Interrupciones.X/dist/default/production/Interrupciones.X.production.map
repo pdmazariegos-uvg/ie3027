@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Interrupciones.X.production.sym \
   --cmf=dist/default/production\Interrupciones.X.production.cmf -z -Q16F887 \
-  -oC:\Users\Pablo\AppData\Local\Temp\sqs.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\Pablo\AppData\Local\Temp\s620.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Interrupciones.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Pablo\AppData\Local\Temp\sqs.o \
+  -DENTRY=2 -k C:\Users\Pablo\AppData\Local\Temp\s620.o \
   dist/default/production\Interrupciones.X.production.o 
 
 Object code version is 3.11
@@ -28,31 +28,32 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Pablo\AppData\Local\Temp\sqs.o
+C:\Users\Pablo\AppData\Local\Temp\s620.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\Interrupciones.X.production.o
-                cinit                                 F        F        4        8       0
+                cinit                                 F        F        6        8       0
                 intentry                              4        4        8        8       0
-                text3                                29       29        7        8       0
-                text2                                21       21        8        8       0
-                text1                                30       30        1        8       0
-                maintext                             13       13        E        8       0
-                cstackCOMMON                         70       70        2       70       1
+                text3                                34       34       16        8       0
+                text2                                55       55        B        8       0
+                text1                                4A       4A        B        8       0
+                maintext                             15       15       1F        8       0
+                cstackCOMMON                         70       70        3       70       1
+                bssCOMMON                            73       73        2       70       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              C        C        3         0
-                cinit                                 F        F        4         0
+                cinit                                 F        F        6         0
                 intentry                              4        4        8         0
                 reset_vec                             0        0        3         0
-                text3                                29       29        7         0
-                text2                                21       21        8         0
-                text1                                30       30        1         0
-                maintext                             13       13        E         0
+                text3                                34       34       16         0
+                text2                                55       55        B         0
+                text1                                4A       4A        B         0
+                maintext                             15       15       1F         0
 
         CLASS   STRCODE        
 
@@ -63,7 +64,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        2         1
+                cstackCOMMON                         70       70        3         1
+                bssCOMMON                            73       73        2         1
 
         CLASS   BANK0          
 
@@ -98,8 +100,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  00002D  000031         8       0  CODE        2
-                cstackCOMMON                   000070  000002  000072        70       1  COMMON      1
+                intentry                       000004  00005C  000060         8       0  CODE        2
+                cstackCOMMON                   000070  000005  000075        70       1  COMMON      1
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
 
@@ -111,13 +113,13 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         0031-1FFF            800
-        COMMON           0072-007D              C           1
+                         0060-1FFF            800
+        COMMON           0075-007D              9           1
         CONST            0003-0003              1           2
-                         0031-1FFF            100
+                         0060-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         0031-1FFF            100
+                         0060-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
                          00A0-00EF             50
@@ -129,15 +131,20 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         0031-1FFF           1FCF
+                         0060-1FFF           1FA0
         STRING           0003-0003              1           2
-                         0031-1FFF            100
+                         0060-1FFF            100
 
                                   Symbol Table
 
 _ANSEL                    (abs)        0188
 _ANSELH                   (abs)        0189
-_ISR                      text3        0029
+_INTCON                   (abs)        000B
+_ISR                      text3        0034
+_OPTION_REG               (abs)        0081
+_PORTA                    (abs)        0005
+_TMR0                     (abs)        0001
+_TMR0IF                   (abs)        005A
 _TRISA                    (abs)        0085
 __CFG_BOR4V$BOR40V        (abs)        0000
 __CFG_BOREN$OFF           (abs)        0000
@@ -156,7 +163,8 @@ __Hbank0                  bank0        0000
 __Hbank1                  bank1        0000
 __Hbank2                  bank2        0000
 __Hbank3                  bank3        0000
-__Hcinit                  cinit        0013
+__HbssCOMMON              bssCOMMON    0000
+__Hcinit                  cinit        0015
 __Hclrtext                clrtext      0000
 __Hcode                   code         0000
 __Hcommon                 common       0000
@@ -177,7 +185,7 @@ __Hsfr1                   sfr1         0000
 __Hsfr2                   sfr2         0000
 __Hsfr3                   sfr3         0000
 __Hspace_0                (abs)        2009
-__Hspace_1                (abs)        0072
+__Hspace_1                (abs)        0075
 __Hspace_2                (abs)        0000
 __Hspace_3                (abs)        0000
 __Hstack                  stack        0000
@@ -188,6 +196,7 @@ __Lbank0                  bank0        0000
 __Lbank1                  bank1        0000
 __Lbank2                  bank2        0000
 __Lbank3                  bank3        0000
+__LbssCOMMON              bssCOMMON    0000
 __Lcinit                  cinit        000F
 __Lclrtext                clrtext      0000
 __Lcode                   code         0000
@@ -216,7 +225,7 @@ __Lstack                  stack        0000
 __Lstrings                strings      0000
 __Ltext                   text         0000
 __S0                      (abs)        2009
-__S1                      (abs)        0072
+__S1                      (abs)        0075
 __S2                      (abs)        0000
 __S3                      (abs)        0000
 ___int_sp                 stack        0000
@@ -224,27 +233,29 @@ ___latbits                (abs)        0002
 ___sp                     stack        0000
 ___stackhi                (abs)        0000
 ___stacklo                (abs)        0000
-__end_of_ISR              text3        0030
-__end_of__initialization  cinit        000F
-__end_of_initPorts        text2        0029
-__end_of_initTMR0         text1        0031
-__end_of_main             maintext     0021
+__end_of_ISR              text3        004A
+__end_of__initialization  cinit        0011
+__end_of_initPorts        text2        0060
+__end_of_initTMR0         text1        0055
+__end_of_main             maintext     0034
 __initialization          cinit        000F
+__pbssCOMMON              bssCOMMON    0073
 __pcstackCOMMON           cstackCOMMON 0070
 __pintentry               intentry     0004
-__pmaintext               maintext     0013
-__ptext1                  text1        0030
-__ptext2                  text2        0021
-__ptext3                  text3        0029
+__pmaintext               maintext     0015
+__ptext1                  text1        004A
+__ptext2                  text2        0055
+__ptext3                  text3        0034
 __size_of_ISR             (abs)        0000
 __size_of_initPorts       (abs)        0000
 __size_of_initTMR0        (abs)        0000
 __size_of_main            (abs)        0000
-_initPorts                text2        0021
-_initTMR0                 text1        0030
-_main                     maintext     0013
+_contador                 bssCOMMON    0073
+_initPorts                text2        0055
+_initTMR0                 text1        004A
+_main                     maintext     0015
 btemp                     (abs)        007E
-end_of_initialization     cinit        000F
+end_of_initialization     cinit        0011
 interrupt_function        intentry     0004
 intlevel0                 functab      0000
 intlevel1                 functab      0000
@@ -271,7 +282,7 @@ FUNCTION INFORMATION:
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		status,2, status,0, pclath, cstack
+		wreg, status,2, status,0, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -279,9 +290,9 @@ FUNCTION INFORMATION:
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
       Locals:         0       0       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       0       0       0       0
-Total ram usage:        0 bytes
+      Temps:          1       0       0       0       0
+      Totals:         1       0       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels required when called:    2
  This function calls:
 		_initPorts
@@ -293,7 +304,7 @@ Total ram usage:        0 bytes
 
  *************** function _initTMR0 *****************
  Defined at:
-		line 74 in file "main.c"
+		line 77 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -301,7 +312,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		None
+		wreg
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -323,7 +334,7 @@ Total ram usage:        0 bytes
 
  *************** function _initPorts *****************
  Defined at:
-		line 65 in file "main.c"
+		line 68 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -353,7 +364,7 @@ Total ram usage:        0 bytes
 
  *************** function _ISR *****************
  Defined at:
-		line 48 in file "main.c"
+		line 43 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -361,7 +372,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		None
+		wreg
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -385,15 +396,15 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initialization		CODE           	000F	0000	1
+		__initialization		CODE           	000F	0000	3
 
-shared estimated size: 1
+shared estimated size: 3
 
 main.c
-		_ISR           		CODE           	0029	0000	8
-		_main          		CODE           	0013	0000	15
-		_initTMR0      		CODE           	0030	0000	2
-		_initPorts     		CODE           	0021	0000	9
+		_ISR           		CODE           	0034	0000	23
+		_main          		CODE           	0015	0000	32
+		_initTMR0      		CODE           	004A	0000	12
+		_initPorts     		CODE           	0055	0000	12
 
-main.c estimated size: 34
+main.c estimated size: 79
 

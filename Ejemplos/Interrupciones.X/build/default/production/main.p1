@@ -1,12 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
+"4361 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 4361: extern volatile __bit TMR0IF __attribute__((address(0x5A)));
+[v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
+"59
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 59: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
+[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
 [p mainexit ]
-"38 main.c
+"34 main.c
+[; ;main.c: 34: 
 [v _initPorts `(v ~T0 @X0 0 ef ]
-"39
+"35
+[; ;main.c: 35: 
 [v _initTMR0 `(v ~T0 @X0 0 ef ]
-"1416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+"166 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"1416
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "3387
@@ -15,6 +26,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3449
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
 [v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1346
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1346: extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
+[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
+"459
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 459: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
+[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -250,96 +267,135 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "16 main.c
+[; ;main.c: 16:         TMR0 = 4;
 [p x FOSC = EXTRC_NOCLKOUT ]
 "17
+[; ;main.c: 17:         contador++;
 [p x WDTE = OFF ]
 "18
+[; ;main.c: 18:     }
 [p x PWRTE = OFF ]
 "19
+[; ;main.c: 19: }
 [p x MCLRE = OFF ]
 "20
+[; ;main.c: 20: 
 [p x CP = OFF ]
 "21
+[; ;main.c: 21: 
 [p x CPD = OFF ]
 "22
+[; ;main.c: 22: 
 [p x BOREN = OFF ]
 "23
+[; ;main.c: 23: void main(void) {
 [p x IESO = OFF ]
 "24
+[; ;main.c: 24:     initPorts();
 [p x FCMEN = OFF ]
 "25
+[; ;main.c: 25:     initTMR0();
 [p x LVP = OFF ]
 "28
+[; ;main.c: 28:             PORTA++;
 [p x BOR4V = BOR40V ]
 "29
+[; ;main.c: 29:             contador = 0;
 [p x WRT = OFF ]
+"39
+[; ;main.c: 39:     ANSEL = 0;
+[v _contador `ui ~T0 @X0 1 e ]
+[i _contador
+-> -> 0 `i `ui
+]
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"48
-[; ;main.c: 48: void __attribute__((picinterrupt(("")))) ISR(void){
+"43
+[; ;main.c: 43: 
 [v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
+"44
+[; ;main.c: 44: 
+[e $ ! _TMR0IF 139  ]
+{
+"46
+[; ;main.c: 46: void initTMR0(void){
+[e = _TMR0IF -> -> 0 `i `b ]
+"47
+[; ;main.c: 47:     OPTION_REG = 0x81;
+[e = _TMR0 -> -> 4 `i `uc ]
+"48
+[; ;main.c: 48:     TMR0 = 4;
+[e ++ _contador -> -> 1 `i `ui ]
+"49
+[; ;main.c: 49:     INTCON = 0xA0;
+}
+[e :U 139 ]
 "50
 [; ;main.c: 50: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "54
-[; ;main.c: 54: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
 "55
-[; ;main.c: 55:     initPorts();
 [e ( _initPorts ..  ]
 "56
-[; ;main.c: 56:     initTMR0();
 [e ( _initTMR0 ..  ]
 "57
-[; ;main.c: 57:     while(1){
-[e :U 141 ]
+[e :U 142 ]
+{
+"58
+[e $ ! >= _contador -> -> 1000 `i `ui 144  ]
 {
 "59
-[; ;main.c: 59:     }
-}
-[e :U 140 ]
-[e $U 141  ]
-[e :U 142 ]
+[e ++ _PORTA -> -> 1 `i `Vuc ]
 "60
-[; ;main.c: 60:     return;
-[e $UE 139  ]
+[e = _contador -> -> 0 `i `ui ]
 "61
-[; ;main.c: 61: }
-[e :UE 139 ]
 }
-"65
-[; ;main.c: 65: void initPorts(void){
+[e :U 144 ]
+"62
+}
+[e :U 141 ]
+[e $U 142  ]
+[e :U 143 ]
+"63
+[e $UE 140  ]
+"64
+[e :UE 140 ]
+}
+"68
 [v _initPorts `(v ~T0 @X0 1 ef ]
 {
 [e :U _initPorts ]
 [f ]
-"66
-[; ;main.c: 66:     TRISA = 0;
+"69
 [e = _TRISA -> -> 0 `i `uc ]
-"67
-[; ;main.c: 67:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"68
-[; ;main.c: 68:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
 "70
-[; ;main.c: 70: }
-[e :UE 143 ]
+[e = _ANSEL -> -> 0 `i `uc ]
+"71
+[e = _ANSELH -> -> 0 `i `uc ]
+"72
+[e = _PORTA -> -> 0 `i `uc ]
+"73
+[e :UE 145 ]
 }
-"74
-[; ;main.c: 74: void initTMR0(void){
+"77
 [v _initTMR0 `(v ~T0 @X0 1 ef ]
 {
 [e :U _initTMR0 ]
 [f ]
-"76
-[; ;main.c: 76: }
-[e :UE 144 ]
+"78
+[e = _OPTION_REG -> -> 129 `i `uc ]
+"79
+[e = _TMR0 -> -> 4 `i `uc ]
+"80
+[e = _INTCON -> -> 160 `i `uc ]
+"81
+[e :UE 146 ]
 }

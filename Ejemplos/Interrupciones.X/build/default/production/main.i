@@ -2651,15 +2651,22 @@ typedef uint16_t uintptr_t;
 
 
 
-
-
-
-
 void initPorts(void);
 void initTMR0(void);
-# 48 "main.c"
-void __attribute__((picinterrupt(("")))) ISR(void){
 
+
+
+uint16_t contador = 0;
+
+
+
+void __attribute__((picinterrupt(("")))) ISR(void){
+    if (TMR0IF){
+
+        TMR0IF = 0;
+        TMR0 = 4;
+        contador++;
+    }
 }
 
 
@@ -2668,7 +2675,10 @@ void main(void) {
     initPorts();
     initTMR0();
     while(1){
-
+        if(contador >= 1000){
+            PORTA++;
+            contador = 0;
+        }
     }
     return;
 }
@@ -2679,11 +2689,13 @@ void initPorts(void){
     TRISA = 0;
     ANSEL = 0;
     ANSELH = 0;
-
+    PORTA = 0;
 }
 
 
 
 void initTMR0(void){
-
+    OPTION_REG = 0x81;
+    TMR0 = 4;
+    INTCON = 0xA0;
 }

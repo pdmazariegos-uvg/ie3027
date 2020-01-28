@@ -11,36 +11,48 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"48 C:\ie3027\Ejemplos\Interrupciones.X\main.c
+"43 C:\ie3027\Ejemplos\Interrupciones.X\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 "54
 [v _main main `(v  1 e 1 0 ]
-"65
+"68
 [v _initPorts initPorts `(v  1 e 1 0 ]
-"74
+"77
 [v _initTMR0 initTMR0 `(v  1 e 1 0 ]
-"1416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+"59 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"166
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"459
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"1346
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"54 C:\ie3027\Ejemplos\Interrupciones.X\main.c
+"4361
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"39 C:\ie3027\Ejemplos\Interrupciones.X\main.c
+[v _contador contador `ui  1 e 2 0 ]
+"54
 [v _main main `(v  1 e 1 0 ]
 {
-"61
+"64
 } 0
-"74
+"77
 [v _initTMR0 initTMR0 `(v  1 e 1 0 ]
 {
-"76
+"81
 } 0
-"65
+"68
 [v _initPorts initPorts `(v  1 e 1 0 ]
 {
-"70
+"73
 } 0
-"48
+"43
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
 "50
