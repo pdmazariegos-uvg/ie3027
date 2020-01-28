@@ -5,6 +5,11 @@
  * Created on 27 de enero de 2020, 08:48 PM
  */
 //**************************************************************
+// Librerías
+//**************************************************************
+#include <xc.h>
+#include <stdint.h>
+//**************************************************************
 // Palabra de configuración
 //**************************************************************
 // CONFIG1
@@ -23,25 +28,15 @@
 #pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
-// #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
-
-//**************************************************************
-// Librerías
-//**************************************************************
-#include <xc.h>
-#include <stdint.h>
 //**************************************************************
 // Prototipo de funciones
 //**************************************************************
-
-
-
+void initPorts(void);
+void initTMR0(void);
 //**************************************************************
 // Variables
 //**************************************************************
-
-
+uint16_t contador = 0;
 //**************************************************************
 // Vector de interrupción
 //**************************************************************
@@ -52,9 +47,28 @@ void __interrupt() ISR(void){
 // Función Principal
 //**************************************************************
 void main(void) {
-    
+    initPorts();
+    initTMR0();
     while(1){
-    
+        if(contador >= 1000){
+            PORTA++;
+            contador = 0;
+        }
     }
     return;
+}
+//**************************************************************
+// Función para inicializar puerto
+//**************************************************************
+void initPorts(void){
+    TRISA = 0;          // Puerto A como Salida
+    ANSEL = 0;
+    ANSELH = 0;         // Puertos Digitales
+    PORTA = 0;          // Inicializar Puerto A en 0
+}
+//**************************************************************
+// Función para inicializar Timer0
+//**************************************************************
+void initTMR0(void){
+
 }

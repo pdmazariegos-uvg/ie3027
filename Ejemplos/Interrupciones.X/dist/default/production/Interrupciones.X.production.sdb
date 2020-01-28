@@ -15,9 +15,30 @@
 [v _ISR ISR `II(v  1 e 1 0 ]
 "54
 [v _main main `(v  1 e 1 0 ]
+"65
+[v _initPorts initPorts `(v  1 e 1 0 ]
+"74
+[v _initTMR0 initTMR0 `(v  1 e 1 0 ]
+"1416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"54 C:\ie3027\Ejemplos\Interrupciones.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"60
+"61
+} 0
+"74
+[v _initTMR0 initTMR0 `(v  1 e 1 0 ]
+{
+"76
+} 0
+"65
+[v _initPorts initPorts `(v  1 e 1 0 ]
+{
+"70
 } 0
 "48
 [v _ISR ISR `II(v  1 e 1 0 ]
