@@ -1,0 +1,83 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"43 C:\ie3027\Ejemplos\Librerias.X\main.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"54
+[v _main main `(v  1 e 1 0 ]
+"69
+[v _initPorts initPorts `(v  1 e 1 0 ]
+"78
+[v _initTMR0 initTMR0 `(v  1 e 1 0 ]
+"8 C:\ie3027\Ejemplos\Librerias.X\Oscilador.c
+[v _initOsc initOsc `(v  1 e 1 0 ]
+"59 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"459
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"1346
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S56 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S62 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S67 . 1 `S56 1 . 1 0 `S62 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES67  1 e 1 @143 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"4361
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"39 C:\ie3027\Ejemplos\Librerias.X\main.c
+[v _contador contador `ui  1 e 2 0 ]
+"54
+[v _main main `(v  1 e 1 0 ]
+{
+"65
+} 0
+"78
+[v _initTMR0 initTMR0 `(v  1 e 1 0 ]
+{
+"82
+} 0
+"69
+[v _initPorts initPorts `(v  1 e 1 0 ]
+{
+"74
+} 0
+"8 C:\ie3027\Ejemplos\Librerias.X\Oscilador.c
+[v _initOsc initOsc `(v  1 e 1 0 ]
+{
+[v initOsc@frec frec `uc  1 a 1 wreg ]
+[v initOsc@frec frec `uc  1 a 1 wreg ]
+[v initOsc@frec frec `uc  1 a 1 2 ]
+"40
+} 0
+"43 C:\ie3027\Ejemplos\Librerias.X\main.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"50
+} 0
