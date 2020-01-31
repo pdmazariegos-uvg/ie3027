@@ -11,13 +11,13 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"43 C:\ie3027\Ejemplos\Librerias.X\main.c
+"44 C:\ie3027\Ejemplos\Librerias.X\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"54
+"56
 [v _main main `(v  1 e 1 0 ]
-"69
+"72
 [v _initPorts initPorts `(v  1 e 1 0 ]
-"78
+"82
 [v _initTMR0 initTMR0 `(v  1 e 1 0 ]
 "8 C:\ie3027\Ejemplos\Librerias.X\Oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -53,31 +53,31 @@
 [v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
 "39 C:\ie3027\Ejemplos\Librerias.X\main.c
 [v _contador contador `ui  1 e 2 0 ]
-"54
+"56
 [v _main main `(v  1 e 1 0 ]
 {
-"65
+"67
 } 0
-"78
+"82
 [v _initTMR0 initTMR0 `(v  1 e 1 0 ]
 {
-"82
+"86
 } 0
-"69
+"72
 [v _initPorts initPorts `(v  1 e 1 0 ]
 {
-"74
+"77
 } 0
 "8 C:\ie3027\Ejemplos\Librerias.X\Oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
 {
 [v initOsc@frec frec `uc  1 a 1 wreg ]
 [v initOsc@frec frec `uc  1 a 1 wreg ]
-[v initOsc@frec frec `uc  1 a 1 2 ]
+[v initOsc@frec frec `uc  1 a 1 4 ]
 "40
 } 0
-"43 C:\ie3027\Ejemplos\Librerias.X\main.c
+"44 C:\ie3027\Ejemplos\Librerias.X\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"50
+"51
 } 0

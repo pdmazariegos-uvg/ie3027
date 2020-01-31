@@ -135,8 +135,8 @@ intentry 8 BF CODE 8 0
 config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 74 COMMON 70 1
 %locals
-dist/default/production\Interrupciones.X.production.o
-C:\Users\Pablo\AppData\Local\Temp\s7cc.s
+dist/default/debug\Interrupciones.X.debug.o
+C:\Users\Pablo\AppData\Local\Temp\s9s8.s
 452 F 0 CODE 0
 455 F 0 CODE 0
 466 F 0 CODE 0
