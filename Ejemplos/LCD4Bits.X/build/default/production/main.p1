@@ -1,5 +1,33 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+"1602 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"76 ./LCD.h
+[; ;./LCD.h: 76: void Lcd_Init(void);
+[v _Lcd_Init `(v ~T0 @X0 0 ef ]
+"72
+[; ;./LCD.h: 72: void Lcd_Clear(void);
+[v _Lcd_Clear `(v ~T0 @X0 0 ef ]
+"74
+[; ;./LCD.h: 74: void Lcd_Set_Cursor(char a, char b);
+[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"80
+[; ;./LCD.h: 80: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"84 ./LCD.h
+[; ;./LCD.h: 84: void Lcd_Shift_Left(void);
+[v _Lcd_Shift_Left `(v ~T0 @X0 0 ef ]
+"82
+[; ;./LCD.h: 82: void Lcd_Shift_Right(void);
+[v _Lcd_Shift_Right `(v ~T0 @X0 0 ef ]
+"78
+[; ;./LCD.h: 78: void Lcd_Write_Char(char a);
+[v _Lcd_Write_Char `(v ~T0 @X0 0 ef1`uc ]
 "11 main.c
 [p x FOSC = EXTRC_NOCLKOUT ]
 "12
@@ -259,26 +287,148 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"33 main.c
-[; ;main.c: 33: void main(void) {
+"39 main.c
+[; ;main.c: 39: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"35
-[; ;main.c: 35:     while(1){
+"40
+[; ;main.c: 40:   unsigned int a;
+[v _a `ui ~T0 @X0 1 a ]
+"41
+[; ;main.c: 41:   TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
+"42
+[; ;main.c: 42:   Lcd_Init();
+[e ( _Lcd_Init ..  ]
+"43
+[; ;main.c: 43:   while(1)
 [e :U 140 ]
+"44
+[; ;main.c: 44:   {
 {
-"37
-[; ;main.c: 37:     }
+"45
+[; ;main.c: 45:     Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"46
+[; ;main.c: 46:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"47
+[; ;main.c: 47:     Lcd_Write_String("LCD Library for");
+[e ( _Lcd_Write_String (1 :s 1C ]
+"48
+[; ;main.c: 48:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"49
+[; ;main.c: 49:     Lcd_Write_String("MPLAB XC8");
+[e ( _Lcd_Write_String (1 :s 2C ]
+"50
+[; ;main.c: 50:     _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"51
+[; ;main.c: 51:     Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"52
+[; ;main.c: 52:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"53
+[; ;main.c: 53:     Lcd_Write_String("Developed By");
+[e ( _Lcd_Write_String (1 :s 3C ]
+"54
+[; ;main.c: 54:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"55
+[; ;main.c: 55:     Lcd_Write_String("electroSome");
+[e ( _Lcd_Write_String (1 :s 4C ]
+"56
+[; ;main.c: 56:     _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"57
+[; ;main.c: 57:     Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"58
+[; ;main.c: 58:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"59
+[; ;main.c: 59:     Lcd_Write_String("www.electroSome.com");
+[e ( _Lcd_Write_String (1 :s 5C ]
+"61
+[; ;main.c: 61:     for(a=0;a<15;a++)
+{
+[e = _a -> -> 0 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 142  ]
+[e $U 143  ]
+[e :U 142 ]
+"62
+[; ;main.c: 62:     {
+{
+"63
+[; ;main.c: 63:         _delay((unsigned long)((300)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"64
+[; ;main.c: 64:         Lcd_Shift_Left();
+[e ( _Lcd_Shift_Left ..  ]
+"65
+[; ;main.c: 65:     }
+}
+[e ++ _a -> -> 1 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 142  ]
+[e :U 143 ]
+}
+"67
+[; ;main.c: 67:     for(a=0;a<15;a++)
+{
+[e = _a -> -> 0 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 145  ]
+[e $U 146  ]
+[e :U 145 ]
+"68
+[; ;main.c: 68:     {
+{
+"69
+[; ;main.c: 69:         _delay((unsigned long)((300)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"70
+[; ;main.c: 70:         Lcd_Shift_Right();
+[e ( _Lcd_Shift_Right ..  ]
+"71
+[; ;main.c: 71:     }
+}
+[e ++ _a -> -> 1 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 145  ]
+[e :U 146 ]
+}
+"73
+[; ;main.c: 73:     Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"74
+[; ;main.c: 74:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"75
+[; ;main.c: 75:     Lcd_Write_Char('e');
+[e ( _Lcd_Write_Char (1 -> -> 101 `ui `uc ]
+"76
+[; ;main.c: 76:     Lcd_Write_Char('S');
+[e ( _Lcd_Write_Char (1 -> -> 83 `ui `uc ]
+"77
+[; ;main.c: 77:     _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"78
+[; ;main.c: 78:   }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"38
-[; ;main.c: 38:     return;
+"79
+[; ;main.c: 79:     return;
 [e $UE 138  ]
-"39
-[; ;main.c: 39: }
+"80
+[; ;main.c: 80: }
 [e :UE 138 ]
 }
+[a 3C 68 101 118 101 108 111 112 101 100 32 66 121 0 ]
+[a 1C 76 67 68 32 76 105 98 114 97 114 121 32 102 111 114 0 ]
+[a 5C 119 119 119 46 101 108 101 99 116 114 111 83 111 109 101 46 99 111 109 0 ]
+[a 4C 101 108 101 99 116 114 111 83 111 109 101 0 ]
+[a 2C 77 80 76 65 66 32 88 67 56 0 ]

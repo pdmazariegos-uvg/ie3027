@@ -2644,12 +2644,9 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 # 27 "main.c" 2
-
-
-
-
+# 37 "main.c"
 # 1 "./LCD.h" 1
-# 51 "./LCD.h"
+# 68 "./LCD.h"
 void Lcd_Port(char a);
 
 void Lcd_Cmd(char a);
@@ -2667,13 +2664,48 @@ void Lcd_Write_String(char *a);
 void Lcd_Shift_Right(void);
 
 void Lcd_Shift_Left(void);
-# 31 "main.c" 2
+# 37 "main.c" 2
 
 
 void main(void) {
+  unsigned int a;
+  TRISD = 0x00;
+  Lcd_Init();
+  while(1)
+  {
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("LCD Library for");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("MPLAB XC8");
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("Developed By");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("electroSome");
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("www.electroSome.com");
 
-    while(1){
-
+    for(a=0;a<15;a++)
+    {
+        _delay((unsigned long)((300)*(8000000/4000.0)));
+        Lcd_Shift_Left();
     }
+
+    for(a=0;a<15;a++)
+    {
+        _delay((unsigned long)((300)*(8000000/4000.0)));
+        Lcd_Shift_Right();
+    }
+
+    Lcd_Clear();
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_Char('e');
+    Lcd_Write_Char('S');
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
+  }
     return;
 }
