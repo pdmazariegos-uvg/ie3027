@@ -32,6 +32,34 @@
 #ifndef __LCD_H_
 #define	__LCD_H_
 
+#ifndef _XTAL_FREQ
+#define _XTAL_FREQ 8000000
+#endif
+
+#ifndef RS
+#define RS RD2
+#endif
+
+#ifndef EN
+#define EN RD3
+#endif
+
+#ifndef D4
+#define D4 RD4
+#endif
+
+#ifndef D5
+#define D5 RD5
+#endif
+
+#ifndef D6
+#define D6 RD6
+#endif
+
+#ifndef D7
+#define D7 RD7
+#endif
+
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 //LCD Functions Developed by electroSome
