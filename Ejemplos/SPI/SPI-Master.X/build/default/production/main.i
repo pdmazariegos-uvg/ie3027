@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 10 "main.c"
+# 14 "main.c"
 #pragma config FOSC = EXTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -22,7 +22,14 @@
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 34 "main.c"
+
+
+
+
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2507,7 +2514,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 34 "main.c" 2
+# 35 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
@@ -2642,7 +2649,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 35 "main.c" 2
+# 36 "main.c" 2
 
 # 1 "./SPI.h" 1
 # 17 "./SPI.h"
@@ -2679,15 +2686,37 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 36 "main.c" 2
-
-
-
+# 37 "main.c" 2
+# 46 "main.c"
+void setup(void);
 
 
 
 
 void main(void) {
+    setup();
+
+
+
+    while(1){
+       PORTCbits.RC2 = 0;
+       _delay((unsigned long)((1)*(8000000/4000.0)));
+
+       spiWrite(PORTB);
+       PORTD = spiRead();
+
+       _delay((unsigned long)((1)*(8000000/4000.0)));
+       PORTCbits.RC2 = 1;
+
+       _delay((unsigned long)((250)*(8000000/4000.0)));
+       PORTB++;
+    }
+    return;
+}
+
+
+
+void setup(void){
     ANSEL = 0;
     ANSELH = 0;
     TRISC2 = 0;
@@ -2695,23 +2724,7 @@ void main(void) {
     TRISD = 0;
     PORTB = 0;
     PORTD = 0;
-    RC2 = 1;
+    PORTCbits.RC2 = 1;
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-    while(1){
 
-        RC2 = 0;
-       _delay((unsigned long)((1)*(8000000/4000.0)));
-
-       spiWrite(PORTB);
-       PORTD = spiRead();
-
-       _delay((unsigned long)((1)*(8000000/4000.0)));
-       RC2 = 1;
-
-       _delay((unsigned long)((250)*(8000000/4000.0)));
-       PORTB++;
-
-
-    }
-    return;
 }

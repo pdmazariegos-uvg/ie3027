@@ -54,14 +54,14 @@ void main(void) {
     // Loop infinito
     //*************************************************************************
     while(1){
-       PORTBbits.RC2 = 0;       //Slave Select
+       PORTCbits.RC2 = 0;       //Slave Select
        __delay_ms(1);
        
        spiWrite(PORTB);
        PORTD = spiRead();
        
        __delay_ms(1);
-       PORTBbits.RC2 = 1;       //Slave Deselect 
+       PORTCbits.RC2 = 1;       //Slave Deselect 
        
        __delay_ms(250);
        PORTB++;
@@ -74,19 +74,12 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    
+    TRISC2 = 0;
     TRISB = 0;
     TRISD = 0;
-    
     PORTB = 0;
     PORTD = 0;
-    
-    INTCONbits.GIE = 1;         // Habilitamos interrupciones
-    INTCONbits.PEIE = 1;        // Habilitamos interrupciones PEIE
-    PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
-    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
-    TRISAbits.TRISA5 = 1;       // Slave Select
-   
-    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    PORTCbits.RC2 = 1;
+    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
 }
