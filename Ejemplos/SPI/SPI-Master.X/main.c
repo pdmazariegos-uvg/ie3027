@@ -1,11 +1,15 @@
+//*****************************************************************************
 /*
  * File:   main.c
  * Author: Pablo
- *
+ * Ejemplo de implementación de la comunicación SPI 
+ * Código Maestro
  * Created on 10 de febrero de 2020, 03:32 PM
  */
-
-
+//*****************************************************************************
+//*****************************************************************************
+// Palabra de configuración
+//*****************************************************************************
 // CONFIG1
 #pragma config FOSC = EXTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
@@ -25,15 +29,64 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
-
+//*****************************************************************************
+// Definición e importación de librerías
+//*****************************************************************************
 #include <xc.h>
 #include <stdint.h>
+#include "SPI.h"
+//*****************************************************************************
+// Definición de variables
+//*****************************************************************************
+#define _XTAL_FREQ 8000000
+//*****************************************************************************
+// Definición de funciones para que se puedan colocar después del main de lo 
+// contrario hay que colocarlos todas las funciones antes del main
+//*****************************************************************************
+void setup(void);
 
+//*****************************************************************************
+// Código Principal
+//*****************************************************************************
 void main(void) {
-    
+    setup();
+    //*************************************************************************
+    // Loop infinito
+    //*************************************************************************
     while(1){
-    
-    
+       PORTBbits.RC2 = 0;       //Slave Select
+       __delay_ms(1);
+       
+       spiWrite(PORTB);
+       PORTD = spiRead();
+       
+       __delay_ms(1);
+       PORTBbits.RC2 = 1;       //Slave Deselect 
+       
+       __delay_ms(250);
+       PORTB++;
     }
     return;
+}
+//*****************************************************************************
+// Función de Inicialización
+//*****************************************************************************
+void setup(void){
+    ANSEL = 0;
+    ANSELH = 0;
+    
+    TRISB = 0;
+    TRISD = 0;
+    
+    PORTB = 0;
+    PORTD = 0;
+    
+    INTCONbits.GIE = 1;         // Habilitamos interrupciones
+    INTCONbits.PEIE = 1;        // Habilitamos interrupciones PEIE
+    PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
+    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
+    TRISAbits.TRISA5 = 1;       // Slave Select
+   
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+
 }
