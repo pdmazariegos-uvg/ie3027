@@ -19,8 +19,8 @@ void I2C_Master_Init(const unsigned long c)
     SSPCON2 = 0;
     SSPADD = (_XTAL_FREQ/(4*c))-1;
     SSPSTAT = 0;
-    TRISC3 = 1;
-    TRISC4 = 1;
+    TRISCbits.TRISC3 = 1;
+    TRISCbits.TRISC4 = 1;
 }
 //*****************************************************************************
 // Función de espera: mientras se esté iniciada una comunicación,
@@ -75,7 +75,7 @@ unsigned short I2C_Master_Read(unsigned short a)
 {
     unsigned short temp;
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas
-    RCEN = 1;
+    SSPCON2bits.RCEN = 1;
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas
     temp = SSPBUF;
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas
@@ -90,12 +90,12 @@ unsigned short I2C_Master_Read(unsigned short a)
 //*****************************************************************************
 // Función para inicializar I2C Esclavo
 //*****************************************************************************
-void I2C_Slave_Init(short address)
+void I2C_Slave_Init(uint8_t address)
 { 
     SSPADD = address;
-    SSPCON = 0x36;
-    SSPSTAT = 0x80;
-    SSPCON2 = 0x01;
+    SSPCON = 0x36;      // 0b00110110
+    SSPSTAT = 0x80;     // 0b10000000
+    SSPCON2 = 0x01;     // 0b00000001
     TRISC3 = 1;
     TRISC4 = 1;
     GIE = 1;
