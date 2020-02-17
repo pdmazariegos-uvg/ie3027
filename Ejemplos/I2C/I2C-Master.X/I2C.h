@@ -16,6 +16,12 @@
 #define	__I2C_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include <pic16f887.h>
+
+#ifndef _XTAL_FREQ
+#define _XTAL_FREQ 8000000
+#endif
+
 //*****************************************************************************
 // Función para inicializar I2C Maestro
 //*****************************************************************************

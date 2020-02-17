@@ -10,7 +10,6 @@
  * Basado en Link: http://microcontroladores-mrelberni.com/i2c-pic-comunicacion-serial/
  */
 #include "I2C.h"
-
 //*****************************************************************************
 // Función para inicializar I2C Maestro
 //*****************************************************************************
@@ -80,7 +79,6 @@ unsigned short I2C_Master_Read(unsigned short a)
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas
     temp = SSPBUF;
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas
-    //SSPCON2bits.ACKDT = (a)?0:1;    // if(a == 1) ACKDT = 0; else ACKDT = 1;
     if(a == 1){
         SSPCON2bits.ACKDT = 0;
     }else{
