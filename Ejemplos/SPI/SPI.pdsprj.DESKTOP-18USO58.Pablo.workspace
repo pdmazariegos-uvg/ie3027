@@ -67,7 +67,7 @@
    <POPUP w="130" x="168" flags="00000008" y="280" h="151" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="188" flags="80000002" y="300" h="8" pid="8" iid="1">
+   <POPUP w="8" x="188" flags="00000002" y="300" h="8" pid="8" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -113,7 +113,7 @@
    <POPUP w="130" x="288" flags="00000008" y="400" h="151" pid="7" iid="2">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="308" flags="80000002" y="420" h="8" pid="8" iid="2">
+   <POPUP w="8" x="308" flags="00000002" y="420" h="8" pid="8" iid="2">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
